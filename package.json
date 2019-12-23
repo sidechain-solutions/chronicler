@@ -1,0 +1,23 @@
+{
+  "name": "chronicler",
+  "author": "Sidechain Solutions",
+  "version": "0.1.0",
+  "description": "A distributed network to store, audit, or verify various types of data built using the Lisk SDK.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chronicler",
+    "lisk",
+    "sdk",
+    "javascript",
+    "blockchain",
+    "sidechain",
+    "sidechain solutions"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "lisk-sdk": "^2.3.6"
+  }
+}

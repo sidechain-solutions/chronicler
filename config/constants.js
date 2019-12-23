@@ -1,0 +1,7 @@
+const CONSTANTS = {
+  ACTIVE_DELEGATES: 11,
+  MAX_PAYLOAD_LENGTH: 2048 * 1024,
+  MAX_VOTES_PER_ACCOUNT: 11
+};
+
+module.exports = { CONSTANTS };

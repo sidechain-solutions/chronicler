@@ -53,7 +53,7 @@ pm2 startup
 
 ### Verification
 
-You can verify that your node is actively participating in the network by checking if your IP is present on the Explorer's [Network Monitor](https://explorer.chronicler.io/networkMonitor).
+You can verify that your node is actively participating in the network by checking if your IP is present on the Explorer's [Network Monitor](https://explorer.chronicler.cc/networkMonitor).
 
 ### Forging
 

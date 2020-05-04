@@ -1,6 +1,8 @@
-# Chronicler
+# Chronicler Core Node
 
-A distributed network to store, audit, or verify various types of data built using the Lisk SDK.
+Backend for running Chronicler Core Nodes. A Lisk SDK based decentralized Blockchain to store, audit, or verify various types of data.
+
+See https://chronicler.cc for a live demo or https://api.chronicler.cc for API access.
 
 ### Prerequisites
 

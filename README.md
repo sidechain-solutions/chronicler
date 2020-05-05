@@ -8,10 +8,11 @@ See https://chronicler.cc for a live demo or https://api.chronicler.cc for API a
 
 First install the dependencies as detailed in the [Lisk SDK documentation](https://lisk.io/documentation/lisk-sdk/setup).
 
-- Node.js
+- Node.js (10.20.1)
 - PostgreSQL
 - Python
 - pm2 (recommended)
+- bunyan (recommended)
 
 ### Installation
 
@@ -42,6 +43,12 @@ Commands to start and stop the pm2 process are:
 ```
 pm2 stop chronicler
 pm2 start chronicler
+```
+
+View the logs of the pm2 process with:
+
+```
+pm2 logs --raw | bunyan
 ```
 
 ### Start application on boot

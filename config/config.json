@@ -24,6 +24,16 @@
           "moduleID": 5,
           "assetID": 0,
           "baseFee": "1000000000"
+        },
+        {
+          "moduleID": 5000,
+          "assetID": 101,
+          "baseFee": "0"
+        },
+        {
+          "moduleID": 5000,
+          "assetID": 102,
+          "baseFee": "0"
         }
       ],
       "rewards": {

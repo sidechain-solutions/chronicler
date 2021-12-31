@@ -18,13 +18,7 @@ class ArchiveTextTransaction extends BaseAsset {
 
   static get TYPE() {
     return 101;
-  }
-
-  /* Set the transaction FEE to 10 TOKENS */
-
-  static get FEE() {
-    return `${10 * 10 ** 8}`;
-  }
+  }  
 
   validate({asset}) {    
     const { title, text } = JSON.parse(asset.data);
@@ -49,22 +43,6 @@ class ArchiveTextTransaction extends BaseAsset {
   async apply({transaction}) {    
   }
 
-  assetToBytes(asset) {
-    const { data } = asset;
-
-    return Buffer.from(data, "utf8");
-  }
-
-  assetFromSync(raw) {
-    if (raw.tf_data) {
-      // This line will throw if there is an error
-      const data = raw.tf_data.toString("utf8");
-
-      return { data };
-    }
-
-    return undefined;
-  }
 }
 
 module.exports = ArchiveTextTransaction;

@@ -1,17 +1,18 @@
 {
-    "label": "beta-sdk-app",
+    "label": "chronicler",
     "version": "0.1.0",
     "networkVersion": "2.0",
     "rootPath": "~/.lisk",
     "logger": {
-      "fileLogLevel": "info",
+      "fileLogLevel": "debug",
       "consoleLogLevel": "info",
       "logFileName": "lisk.log"
     },
     "rpc": {
       "enable": true,
       "mode": "ws",
-      "port": 8080
+      "port": 8080,
+      "host": "0.0.0.0"
     },
     "genesisConfig": {
       "blockTime": 10,

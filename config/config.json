@@ -18,7 +18,7 @@
       "communityIdentifier": "sdk",
       "maxPayloadLength": 30360,
       "bftThreshold": 9,
-      "minFeePerByte": 1000,
+      "minFeePerByte": 10000,
       "baseFees": [
         {
           "moduleID": 5,

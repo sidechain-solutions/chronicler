@@ -8,8 +8,7 @@ See https://chronicler.cc for a live demo or https://api.chronicler.cc for API a
 
 First install the dependencies as detailed in the [Lisk SDK documentation](https://lisk.io/documentation/lisk-sdk/setup).
 
-- Node.js (10.20.1)
-- PostgreSQL
+- Node.js (12.22.7)
 - Python
 - pm2 (recommended)
 - bunyan (recommended)

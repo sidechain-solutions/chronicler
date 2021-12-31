@@ -26,39 +26,24 @@ class ArchiveBinaryTransaction extends BaseAsset {
     return `${100 * 10 ** 8}`;
   }
 
-  validate({asset}) {
-    const errors = [];
+  validate({asset}) {    
     const { title, binary } = JSON.parse(asset.data);
 
-    if (!title) {
-      errors.push(
-        new Error(
-          'Invalid "title" defined on transaction'
-        )
-      );
+    if (!title) {      
+        throw new Error('Invalid "title" defined on transaction');      
     }
 
     if (title.length > 128) {
-      errors.push(new Error("A string value no longer than 128 characters"));
+      throw new Error("A string value no longer than 128 characters");
     }
 
     if (!binary) {
-      errors.push(
-        new Error(
-          'Invalid "binary" defined on transaction',          
-        )
-      );
+      throw new Error('Invalid "binary" defined on transaction');      
     }
 
     if (binary.length > 1500000) {
-      errors.push(new Error("Binary file too large."));
-    }
-
-    var result = "";
-    errors.forEach(element => {
-      result += element.toString();
-    });
-    throw new Error(result);
+      throw new Error("Binary file too large.");
+    }    
   }
 
   assetToBytes(asset) {

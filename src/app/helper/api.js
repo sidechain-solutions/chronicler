@@ -1,4 +1,5 @@
 const { apiClient, codec, cryptography, transactions } = require( '@liskhq/lisk-client');
+const { string } = require('@oclif/parser/lib/flags');
 
 var archiveBinarySchema = {
     $id: 'lisk/archivebinary/transaction',
@@ -112,7 +113,7 @@ class ApiHelper{
                 moduleID: 5000,
                 assetID: 102,
                 nonce: BigInt(accountNonce),
-                fee: BigInt(0),
+                fee: BigInt(Math.round(JSON.stringify(archive).length * 10000 * 3)),
                 senderPublicKey: sender.publicKey,
                 asset: {
                     data: JSON.stringify(archive),
@@ -136,7 +137,7 @@ class ApiHelper{
                 moduleID: 5000,
                 assetID: 101,
                 nonce: BigInt(accountNonce),
-                fee: BigInt(0),
+                fee: BigInt(Math.round(JSON.stringify(archive).length * 1024 * 10000 / 1000 * 3)),
                 senderPublicKey: sender.publicKey,
                 asset: {
                     data: JSON.stringify(archive),
@@ -167,6 +168,14 @@ class ApiHelper{
             console.log("transaction decoded", transactionDecoded);
         });        
     }
+
+    textToBinary = (str = '') => {
+        let res = '';
+        res = str.split('').map(char => {
+           return char.charCodeAt(0).toString(2); //toString(2) converts to binary format
+        }).join(' ');
+        return res;
+     };
 }
 
 function initiateTest(){
@@ -186,17 +195,35 @@ function initiateTest(){
         "title": "text archive example 1",        
         "text": "A text example to be verified"
     };    
-
+    console.log("text archive length", JSON.stringify(textArchive).length);
     client.createArchiveTextAssetAndSign(textArchive, credential).then(function(response){
         console.log("transaction created", response);
 
         client.sendTransaction(response).then(function(tx){
             console.log("archive text transaction sent", tx);
         }).catch(function(e){
-            console.log("Error sending news transaction", e);
+            console.log("Error sending text archive transaction", e);
         });
     }).catch(function(e){
-        console.log("Error creating news transaction", e);
+        console.log("Error creating text archive transaction", e);
+    });
+
+    var binaryArchive = {
+        "title": "text binary example 1",        
+        "binary": Buffer.from("A text example to be verified", "utf8")
+    };
+    
+    console.log("binary archive length", JSON.stringify(binaryArchive).length);
+    client.createArchiveBinaryAssetAndSign(binaryArchive, credential).then(function(response){
+        console.log("transaction created", response);
+
+        client.sendTransaction(response).then(function(tx){
+            console.log("archive binary transaction sent", tx);
+        }).catch(function(e){
+            console.log("Error sending binary archive transaction", e);
+        });
+    }).catch(function(e){
+        console.log("Error creating binary archive transaction", e);
     });
 
     client.setNewBlockEventSubscriber();

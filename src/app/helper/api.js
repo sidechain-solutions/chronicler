@@ -1,5 +1,4 @@
 const { apiClient, codec, cryptography, transactions } = require( '@liskhq/lisk-client');
-const { string } = require('@oclif/parser/lib/flags');
 
 var archiveBinarySchema = {
     $id: 'lisk/archivebinary/transaction',
@@ -137,7 +136,7 @@ class ApiHelper{
                 moduleID: 5000,
                 assetID: 101,
                 nonce: BigInt(accountNonce),
-                fee: BigInt(Math.round(JSON.stringify(archive).length * 1024 * 10000 / 1000 * 3)),
+                fee: BigInt(Math.round(JSON.stringify(archive).length * 10000 * 3)),
                 senderPublicKey: sender.publicKey,
                 asset: {
                     data: JSON.stringify(archive),
@@ -179,7 +178,7 @@ class ApiHelper{
 }
 
 function initiateTest(){
-    var client = new ApiHelper('ws://localhost:8080/ws');
+    var client = new ApiHelper('ws://api.chronicler.cc:8080/ws');
     
     client.getAccountFromAddress("608b72e89d6daee341d8926db26936b435cc062d").then(function(data){
         console.log(data);

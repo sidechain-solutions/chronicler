@@ -20,12 +20,6 @@ class ArchiveBinaryTransaction extends BaseAsset {
     return 102;
   }
 
-  /* Set the transaction FEE to 100 TOKENS */
-
-  static get FEE() {
-    return `${100 * 10 ** 8}`;
-  }
-
   validate({asset}) {    
     const { title, binary } = JSON.parse(asset.data);
 
@@ -46,25 +40,9 @@ class ArchiveBinaryTransaction extends BaseAsset {
     }    
   }
 
-  assetToBytes(asset) {
-    const { data } = asset;
-
-    return Buffer.from(data, "utf8");
-  }
-
   async apply({transaction}) {    
   }
 
-  assetFromSync(raw) {
-    if (raw.tf_data) {
-      // This line will throw if there is an error
-      const data = raw.tf_data.toString("utf8");
-
-      return { data };
-    }
-
-    return undefined;
-  }
 }
 
 module.exports = ArchiveBinaryTransaction;

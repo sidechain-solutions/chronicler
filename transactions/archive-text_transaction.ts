@@ -26,36 +26,24 @@ class ArchiveTextTransaction extends BaseAsset {
     return `${10 * 10 ** 8}`;
   }
 
-  validate({asset}) {
-    const errors = [];
+  validate({asset}) {    
     const { title, text } = JSON.parse(asset.data);
 
-    if (!title) {      
-      errors.push(
-        new Error(
-          'Invalid "title" defined on transaction')
-      );           
+    if (!title) {            
+      throw new Error('Invalid "title" defined on transaction');      
     }
 
     if (title.length > 128) {
-      errors.push(new Error("A string value no longer than 128 characters"));
+      throw new Error("A string value no longer than 128 characters");
     }
 
-    if (!text) {
-      errors.push(
-        new Error('Invalid "text" defined on transaction')
-      );
+    if (!text) {      
+      throw new Error('Invalid "text" defined on transaction');      
     }
 
     if (text.length > 20000) {
-      errors.push(new Error("A string value no longer than 20000 characters"));
-    }    
-
-    var result = "";
-    errors.forEach(element => {
-      result += element.toString();
-    });
-    throw new Error(result);
+      throw new Error("A string value no longer than 20000 characters");
+    }
   }
 
   async apply({transaction}) {    

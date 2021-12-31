@@ -162,7 +162,7 @@ class ApiHelper{
         const client = await this.getClient();      
         client.subscribe('app:transaction:new', async ( transaction ) => {
             const schema = await client.invoke('app:getSchema');
-            console.log("transaction get", client.transaction.get(Buffer.from(transaction.transaction, 'hex')));
+            
             var transactionDecoded = codec.codec.decodeJSON(schema.transaction, Buffer.from(transaction.transaction, 'hex'));
             console.log("transaction decoded", transactionDecoded);
         });        

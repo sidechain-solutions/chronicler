@@ -5,7 +5,7 @@ import
   BeforeBlockApplyContext,
   AfterGenesisBlockApplyContext } from "lisk-sdk";
 
- const { ArchiveTextTransaction, ArchiveBinaryTransaction } = require("./transactions");
+ const { ArchiveTextTransaction, ArchiveBinaryTransaction } = require("../transactions");
 
  class ArchiveModule extends BaseModule{
      name = "ArchiveModule";
@@ -41,4 +41,4 @@ import
     }
  } 
 
- module.exports = ArchiveModule;
+ module.exports = { ArchiveModule };

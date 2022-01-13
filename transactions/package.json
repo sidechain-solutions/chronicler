@@ -1,6 +1,6 @@
 {
   "name": "chronicler-transactions",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,7 @@
   "author": "Sidechain Solutions",
   "license": "MIT",
   "dependencies": {
-    "@liskhq/lisk-transactions": "^2.3.1"
+    "@liskhq/lisk-transactions": "^5.2.0",
+    "lisk-sdk": "^5.2.0"
   }
 }
